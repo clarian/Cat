@@ -501,6 +501,7 @@ Meow,
         await client.edit_message(loading, 'Loading Complete!')
 
     elif message.content.startswith('!shutdown'):
+        import sys
         admins = ["300355783265353728", "285870888493121536", "290565955153821696"]
         if message.author.id in admins:
             await client.send_message(message.channel, 'Bye!')
@@ -550,4 +551,4 @@ Meow,
         except discord.HTTPException:
           await client.send_message(message.channel, "I need the `Embed links` permission to send this")
 
-client.run('token!')
+client.run('token')
