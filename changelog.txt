@@ -1,0 +1,15 @@
+```
+Changelog.
+
+27-5-2017:
+Cat online for the first time
+Cleaned the code
+!time command fixed
+!load command added
+!support command added
+!maintenance command added
+reactions on words added
+!help command modified
+
+-Cat
+```

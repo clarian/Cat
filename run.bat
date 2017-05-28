@@ -1,0 +1,1 @@
+"C:\Users\god\AppData\Local\Programs\Python\Python36-32\python.exe" bot.py

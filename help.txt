@@ -1,0 +1,25 @@
+
+**!help**        - Shows this message
+**!8**           - Answers only yes or no questions! (aliases: !8ball - !ball)
+**!lunch**       - Know where to go for lunch today.
+**!roll**        - Roll an number between 1 and 6!          - Usage: !roll
+**!echo**        - Make the bot say whatever you want!      - Usage: !echo echo
+**!serverinfo**  - Know information about the server.       - Usage: !serverinfo
+**!ud**          - Search things up in the urbandictionary. - Usage: !ud term
+**!goog**        - Google stuff.                            - Usage: !goog term
+**!lmgtfy**      - Lmgtfy stuff.                            - Usage: !lmgfty term
+**!youtube**     - YouTube stuff.                           - Usage: !youtube test
+**!killme**      - End your life!                           - Usage: !killme
+**!smash**       - Decides to whether smash you or not.     - Usage: !smash
+**!time**        - Know what the server's time is. (utc +1 Amsterdam)
+**!test**        - Just an simple test to know whether the bot is alive or not. (also shows how many messages you've posted. [LIMIT =100])
+**!join**        - Invite Cat to your server!
+**!credits**     - The nicest people who helped me create Cat.
+**!info**        - Show information about Cat
+**!maintenance** - Information about maintenance
+**!support**     - Support.
+**!load**        - Loads.
+**!changelog**   - Shows recent changes in Cat.
+----------------------------------------------------------------------
+More and more commands are getting added. This is just an **BETA**!
+Feel free to suggest commands!
