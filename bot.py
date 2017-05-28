@@ -218,6 +218,18 @@ Me, **Ã¡Å¾Âµ Ã¡Å¾Âµ Ã¡Å¾Âµ Ã¡Å¾Âµ**#8193 - Bringing Cat 
 
     elif message.content.startswith('panda'):
         await client.send_message(message.channel, "https://www.youtube.com/watch?v=E5ONTXHS2mM")
+        
+    elif message.content.startswith('logic'):
+        await client.send_message(message.channel, "https://www.youtube.com/watch?v=cycUHgg0zzU")
+        await client.send_message(message.channel, "I don't wanna be alive..")
+        
+    elif message.content.startswith('kys'):
+        await client.send_message(message.channel, "https://www.youtube.com/watch?v=cycUHgg0zzU")
+        await client.send_message(message.channel, "I don't wanna be alive..")
+        
+    elif message.content.startswith('kms'):
+        await client.send_message(message.channel, "https://www.youtube.com/watch?v=cycUHgg0zzU")
+        await client.send_message(message.channel, "I don't wanna be alive..")
 
     elif message.content.startswith('bobby'):
         await client.send_message(message.channel, "Free my nigga Bobby Shmurda ")
