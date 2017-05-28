@@ -543,4 +543,4 @@ Meow,
         except discord.HTTPException:
           await client.send_message(message.channel, "I need the `Embed links` permission to send this")
 
-client.run('MzE3OTU1MjQwNTQyNDcwMTU0.DAsnQw.4SaY_G7_4oMa22n4VtBYhuW4EVM')
+client.run('token')
