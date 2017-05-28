@@ -212,15 +212,15 @@ Errors, basics, cleaning, everything.
 
     elif message.content.startswith('panda'):
         await client.send_message(message.channel, "https://www.youtube.com/watch?v=E5ONTXHS2mM")
-        
+
     elif message.content.startswith('logic'):
         await client.send_message(message.channel, "https://www.youtube.com/watch?v=cycUHgg0zzU")
         await client.send_message(message.channel, "I don't wanna be alive..")
-        
+
     elif message.content.startswith('kys'):
         await client.send_message(message.channel, "https://www.youtube.com/watch?v=cycUHgg0zzU")
         await client.send_message(message.channel, "I don't wanna be alive..")
-        
+
     elif message.content.startswith('kms'):
         await client.send_message(message.channel, "https://www.youtube.com/watch?v=cycUHgg0zzU")
         await client.send_message(message.channel, "I don't wanna be alive..")
@@ -501,12 +501,12 @@ Meow,
         await client.edit_message(loading, 'Loading Complete!')
 
     elif message.content.startswith('!shutdown'):
-     admins = ["300355783265353728", "285870888493121536", "290565955153821696"]
-       if message.author.id in admins:
-        await client.send_message(message.channel, 'Bye!')
-        sys.exit()
-    else:
-        await client.send_message(message.channel, "Nice try!")
+        admins = ["300355783265353728", "285870888493121536", "290565955153821696"]
+        if message.author.id in admins:
+            await client.send_message(message.channel, 'Bye!')
+            sys.exit()
+        else:
+            await client.send_message(message.channel, "Nice try!")
 
     elif message.content.startswith('!info'):
         import time
@@ -550,4 +550,4 @@ Meow,
         except discord.HTTPException:
           await client.send_message(message.channel, "I need the `Embed links` permission to send this")
 
-client.run('token')
+client.run('token!')
