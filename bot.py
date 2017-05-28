@@ -501,8 +501,8 @@ Meow,
         await client.edit_message(loading, 'Loading Complete!')
 
     elif message.content.startswith('!shutdown'):
-        admins = ["300355783265353728", "285870888493121536", "290565955153821696"]
-        if message.author.id in admins:
+     admins = ["300355783265353728", "285870888493121536", "290565955153821696"]
+       if message.author.id in admins:
         await client.send_message(message.channel, 'Bye!')
         sys.exit()
     else:
