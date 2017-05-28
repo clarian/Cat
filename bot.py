@@ -14,6 +14,7 @@ admins = Vitals['admins']
 botvitals = Vitals['botdetails']
 
 bot = commands.Bot(prefix=botvitals['prefix'], description=botvitals['description'])
+bot.remove_command("help")
 client = discord.Client()
 ######
 #on_ready displays bot information
@@ -219,7 +220,7 @@ async def suggest(ctx,title,purpose,example):
 ##
 @bot.command()
 async def support():
-    await bot.say("**Hey there!**\n\nThe official/support server is https://discord.gg/euFUepb | http://discord.me/catbot\n\nMeow,\n**Developers**.")
+    await bot.say("**Hey there!**\n\nThe official/support server is <https://discord.gg/euFUepb> | <http://discord.me/catbot\n\nMeow>,\n**Developers**.")
     pass
 ##
 @bot.command()
@@ -362,17 +363,17 @@ async def load():
     for i in range (20):
         await bot.edit_message(x("`"+(str(i)+"%  "+(i)*(i+1)+a[(i+1):])+"`"))
         await asyncio.sleep(1)
-    await bot.edit_message(x, 'Loading Complete!')
+    await bot.say('Loading Complete!')
     pass
 ##
 @bot.command()
 async def info():
     global build
     build = build['version']
-    author_repo = "https://github.com/timmyturnah"
-    server_url = "https://discord.me/catbot"
-    python_url = "https://www.python.org/"
-    dpy_repo = "https://github.com/Rapptz/discord.py"
+    author_repo = "<https://github.com/timmyturnah>"
+    server_url = "<https://discord.me/catbot>"
+    python_url = "<https://www.python.org/>"
+    dpy_repo = "<https://github.com/Rapptz/discord.py>"
     since = datetime.datetime(2017, 5, 27, 0, 0)
     dpy_version = "[{}]({})".format(discord.__version__, dpy_repo)
     days_since = (datetime.datetime.utcnow() - since).days
