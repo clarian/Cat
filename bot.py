@@ -232,8 +232,8 @@ Errors, basics, cleaning, everything.
     elif message.content.startswith("!join"):
         await client.send_message(message.channel, ":smile: You can add me here: https://discordapp.com/oauth2/authorize?client_id=317955240542470154&scope=client&permissions=0 I :heart: you.")
 
-    elif message.content.startswith('client'):
-        await client.send_message(message.channel, "I'm an client!")
+    elif message.content.startswith('bot'):
+        await client.send_message(message.channel, "I'm an bot :)")
 
     elif message.content.startswith('sup'):
         await client.send_message(message.channel, 'Wassup!')
@@ -529,12 +529,12 @@ Meow,
         owner = "ážµ ážµ ážµ ážµ#8193"
         about = (
             "This is an instance of Cat, an (temporarily) closed-source Discord bot "
-            "created by [Timmy]({}) and improved by many.\n\n"
+            "created by Timmy, Nino and Mental. \n\n"
             "Cat is a bot created by passionate developers "
             "that will do everything to rise to the top. \n\n"
             "[Join us today]({}) "
             "and help us improve!\n\n"
-            "".format(author_repo, server_url))
+            "".format(server_url))
 
         embed = discord.Embed(colour=discord.Colour(value=colour))
         embed.add_field(name="Owner", value=str(owner))
