@@ -1,4 +1,4 @@
-# Build V0.1
+# Build V0.2
 
 import discord, sys
 import json
@@ -20,14 +20,7 @@ description = 'client created by Timmy.'
 bot_prefix = '!'
 
 version = "1.5"
-build = "20"
-
-admins = [285870888493121536]
-def admin(message):
-    if message.author.id in admins:
-        return True
-    else:
-        return False
+build = "version 0.2"
 
 client = commands.Bot(description=description, command_prefix=bot_prefix)
 
@@ -175,7 +168,8 @@ Credits:
 **NINO Cikoo**#3602 - This guy is the best guy ever. He helped me with everything. \
 Errors, basics, cleaning, everything.
 **Autistic-Face-Fucker**#6326 - Bringing me to NINO, helped me with a few basic Errors
-Me, **Ã¡Å¾Âµ Ã¡Å¾Âµ Ã¡Å¾Âµ Ã¡Å¾Âµ**#8193 - Bringing Cat online.
+**spiritual**#8193 - Developer
+**mental**#8504 - Developer
 **All** people who created a bot on discord in python, so i could learn from them!""")
 
     elif message.content.startswith('!echo'):
@@ -278,7 +272,7 @@ Please keep in mind that we have also other things to do, so we'll tell you when
 **Please submit possible commands**.
 
 Meow,
-**Timmy**.""")
+**Developers**.""")
 
     elif message.content.startswith('!support'):
         await client.send_message(message.channel, """**Hey there!**
@@ -286,7 +280,7 @@ Meow,
 The official/support server is https://discord.gg/euFUepb / http://discord.me/catbot
 
 Meow,
-**Cat**.""")
+**Developers**.""")
 
     elif message.content.startswith('!maintenance'):
         await client.send_message(message.channel, """**Hey there!**
@@ -295,7 +289,7 @@ Please note that if the bot is not responding/offline that it's under maintenanc
 We are constantly improving **Cat**, to be more efficent, faster, cooler.
 
 Meow,
-**Cat**.""")
+**Developers**.""")
 
 
     elif message.content.startswith('!test'):
