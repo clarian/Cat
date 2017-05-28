@@ -315,7 +315,7 @@ Meow,
         await client.send_message(message.channel, message.content[10:])
 
     elif message.content.startswith("!dot"):
-        admins = ["300355783265353728", "285870888493121536"]
+        admins = ["300355783265353728", "285870888493121536", "290565955153821696"]
         if message.author.id in admins:
             if message.content[5:] == "online":
                 await client.change_presence(status=None, game=discord.Game(name='Type !help for help.'))
@@ -335,7 +335,7 @@ Meow,
             await client.send_message(":no_entry: - no perms 4 u.")
 
     elif message.content.startswith("!status"):
-        admins = ["300355783265353728", "285870888493121536"]
+        admins = ["300355783265353728", "285870888493121536", "290565955153821696"]
         if message.author.id in admins:
             await client.change_presence(game=discord.Game(name=message.content[7:]))
             await client.send_message(message.channel, ":white_check_mark: - All done kthx")
@@ -343,7 +343,7 @@ Meow,
             await client.send_message(message.channel, ":no_entry: - U got no perms. kthxbye")
 
     elif message.content.startswith("!servers"):
-        admins = ["300355783265353728", "285870888493121536"]
+        admins = ["300355783265353728", "285870888493121536", "290565955153821696"]
         if message.author.id in admins:
             servers = list(client.servers)
             listsrv = []
@@ -353,7 +353,7 @@ Meow,
             await client.send_message(message.channel, "```[servername, serverid] \n " + str(listsrv) + "```")
 
     elif message.content.startswith("!invite"):
-        admins = ["300355783265353728", "285870888493121536"]
+        admins = ["300355783265353728", "285870888493121536", "290565955153821696"]
         if message.author.id in admins:
             temp = await client.send_message(message.author, ":clock3: Creating invite for: " + message.content[8:] + ".")
             try:
@@ -366,7 +366,7 @@ Meow,
                 await client.edit_message(temp, ":no_entry: Failed to create invite.")
 
     elif message.content.startswith('!updateimage'):
-        admins = ["300355783265353728", "285870888493121536"]
+        admins = ["300355783265353728", "285870888493121536", "290565955153821696"]
         if message.author.id in admins:
             print("Updating image now...")
             print(message.content[13:])
@@ -507,11 +507,12 @@ Meow,
         await client.edit_message(loading, 'Loading Complete!')
 
     elif message.content.startswith('!shutdown'):
-     if(str(message.author.id) == '285870888493121536'):
-      await client.send_message(message.channel, 'Bye!')
-      sys.exit()
-     else:
-      await client.send_message(message.channel, "Nice try!")
+        admins = ["300355783265353728", "285870888493121536", "290565955153821696"]
+        if message.author.id in admins:
+        await client.send_message(message.channel, 'Bye!')
+        sys.exit()
+    else:
+        await client.send_message(message.channel, "Nice try!")
 
     elif message.content.startswith('!info'):
         import time
