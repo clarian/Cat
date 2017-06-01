@@ -13,7 +13,7 @@ build = Vitals['build']
 admins = Vitals['admins']
 botvitals = Vitals['botdetails']
 
-bot = commands.Bot(prefix=botvitals['prefix'], description=botvitals['description'])
+bot = commands.Bot(command_prefix=botvitals['prefix'], description=botvitals['description'])
 bot.remove_command("help")
 client = discord.Client()
 ######
@@ -137,7 +137,7 @@ async def ay():
 @bot.command()
 async def shrug():
     """have a shrug"""
-    await bot.say("�\_(0_0)_/�")
+    await bot.say("¯\_(0_0)_/¯")
     pass
 ##
 @bot.command()
@@ -347,7 +347,7 @@ async def serverinfo(ctx):
 @bot.command()
 async def ball(*,question):
     answers = ["As I see it, yes", "It is certain", "It is decidedly so", "Most likely", "Outlook good",
-               "Signs point to yes", "Without a doubt", "Yes", "Yes Ã¢â‚¬â€œ definitely", "You may rely on it",
+               "Signs point to yes", "Without a doubt", "Yes", "Yes definitely", "You may rely on it",
                "Reply hazy, try again",
                "Ask again later", "Better not tell you now", "Cannot predict now", "Concentrate and ask again",
                "Don't count on it", "My reply is no", "My sources say no", "Outlook not so good",
@@ -383,7 +383,7 @@ async def info():
     colour = ''.join([choice('0123456789ABCDEF') for x in range(6)])
     colour = int(colour, 16)
 
-    owner = "ážµ ážµ ážµ ážµ#8193"
+    owner = "<@285870888493121536>"
     about = (
         "This is an instance of Cat, an (temporarily) closed-source Discord bot "
         "created by Timmy, Nino and Mental. \n\n"
