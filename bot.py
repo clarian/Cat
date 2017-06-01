@@ -104,9 +104,9 @@ async def google(*,message):
     pass
 ##
 @bot.command(pass_context=True)
-async def killme(ctx):
+async def killme():
     """kys"""
-    msg = '{} you are now dead'.format(ctx.message.author.mention)
+    msg = '{} you are now dead'.format(message.author.mention)
     await client.say(msg)
     pass
 ##
@@ -122,9 +122,9 @@ async def credits():
     pass
 ##
 @bot.command(pass_context=True)
-async def echo(ctx,*,message):
+async def echo(*,message):
     """Echoes a message"""
-    await bot.delete_message(ctx.message)
+    await bot.delete_message(message)
     await bot.say(message)
     pass
 ##
@@ -202,7 +202,7 @@ async def sleep(time):
     pass
 ##
 @bot.command(pass_context=True)
-async def suggest(ctx,title,purpose,example):
+async def suggest(title,purpose,example):
     homeserver = discord.utils.get(bot.servers, id="317960480696172544")
     suggestionschan = discord.utils.get(homeserver, name="suggestions")
     allist = [title,purpose,example]
@@ -210,10 +210,10 @@ async def suggest(ctx,title,purpose,example):
         await bot.say("Please make sure to fill out all aplicable entries")
         return
     else:
-        em = discord.Embed(title=("Suggestion from %s"%(ctx.message.author))
+        em = discord.Embed(title=("Suggestion from %s"%(message.author))
                            ,description=("Title:\n%s\nPurpose:\n%s\nExample (including libs):\n%s"%(title,purpose,example))
                            ,colour=(255 << 16) + (255 << 8) + 255, timestamp=datetime.datetime.now())
-        em = em.set_thumbnail(url=ctx.message.author.avatar_url)
+        em = em.set_thumbnail(url=message.author.avatar_url)
         await bot.send_message(suggestionschan,embed=em)
         await bot.say("Your suggestion has been submitted successfully :white_check_mark:")
     pass
@@ -229,10 +229,10 @@ async def maintenance():
     pass
 ##
 @bot.command(pass_context=True)
-async def test(ctx):
+async def test():
     counter = 0
     await client.say('Calculating messages...')
-    async for log in bot.logs_from(ctx.message.channel, limit=100):
+    async for log in bot.logs_from(message.channel, limit=100):
         if log.author == message.author:
             counter += 1
     await bot.say(('In the last 100 messages You have posted {} of them.'.format(counter)))
@@ -245,9 +245,9 @@ async def lunch():
     pass
 ##
 @bot.command(pass_context=True)
-async def dot(ctx,status):
+async def dot(status):
     global admins
-    if ctx.message.author.id in admins:
+    if message.author.id in admins:
         if switch.lower() == "online":
             await bot.change_presence(status=None, game=discord.Game(name='Type !help for help.'))
             await bot.say(":ok: I've set status to: **Online**.")
@@ -261,31 +261,31 @@ async def dot(ctx,status):
             await bot.change_presence(status=discord.Status.idle, game=discord.Game(name='Type !help for help.'))
             await bot.say(":ok: I've set status to: **Idle**.")
         else:
-            await bot.say(("Please include a status <@%s>"%(ctx.message.author.id)))
+            await bot.say(("Please include a status <@%s>"%(message.author.id)))
     else:
         await bot.say(":no_entry: - no perms 4 u.")
     pass
 ##
-@bot.command(ctx)
-async def servers(ctx):
+@bot.command()
+async def servers():
     global admins
-    if ctx.message.author.id in admins:
+    if message.author.id in admins:
         serverList = {}
         for server in bot.servers:
             serverList[server.name] = server.id
         compiledmessage = ""
         for entry in serverList:
             compiledmessage+=str(entry)+" : "+str(serverList[entry])+"\n"
-        await bot.send_message(ctx.message.author.id,compiledmessage)
+        await bot.send_message(message.author.id,compiledmessage)
         await bot.say(":ok_hand:")
     else:
         await bot.say("Access denied")
     pass
 ##
 @bot.command(pass_context=True)
-async def updateimage(ctx):
+async def updateimage():
     global admins
-    if ctx.message.author.id in admins:
+    if message.author.id in admins:
         print("Updating image now...")
         try:
             file = "logo.png"
@@ -303,8 +303,8 @@ async def updateimage(ctx):
     pass
 ##
 @bot.command(pass_context=True)
-async def serverinfo(ctx):
-    server = ctx.message.server
+async def serverinfo():
+    server = message.server
     online = len([m.status for m in server.members
                   if m.status == discord.Status.online or
                   m.status == discord.Status.idle])
@@ -312,7 +312,7 @@ async def serverinfo(ctx):
     text_channels = len([x for x in server.channels
                          if x.type == discord.ChannelType.text])
     voice_channels = len(server.channels) - text_channels
-    passed = (ctx.message.timestamp - server.created_at).days
+    passed = (message.timestamp - server.created_at).days
     created_at = ("Since {}. That's over {} days ago!"
                   "".format(server.created_at.strftime("%d %b %Y %H:%M"),
                             passed))
@@ -338,9 +338,9 @@ async def serverinfo(ctx):
         data.set_author(name=server.name)
 
     try:
-        await client.send_message(ctx.message.channel, embed=data)
+        await client.send_message(message.channel, embed=data)
     except discord.HTTPException:
-        await client.send_message(ctx.message.channel, "I need the `Embed links` permission "
+        await client.send_message(message.channel, "I need the `Embed links` permission "
                                   "to send this")
     pass
 ##
@@ -407,4 +407,4 @@ async def info():
     except discord.HTTPException:
         await bot.say("I need the `Embed links` permission to send this")
         
-bot.run("token")
+bot.run("MzE3OTU1MjQwNTQyNDcwMTU0.DAsnQw.4SaY_G7_4oMa22n4VtBYhuW4EVM")
