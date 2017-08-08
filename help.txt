@@ -19,7 +19,7 @@
 **!maintenance** - Information about maintenance
 **!support**     - Support.
 **!load**        - Loads.
-**!changelog**   - Shows recent changes in Cat.
+**simon says**   - Repeats whatever you type after that.
 ----------------------------------------------------------------------
 More and more commands are getting added. This is just an **BETA**!
 Feel free to suggest commands!

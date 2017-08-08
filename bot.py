@@ -134,12 +134,6 @@ async def on_message(message):
       await client.send_message(message.channel, str(current_date))
 
 
-    elif message.content.startswith('!changelog'):
-       with open('changelog.txt', 'r') as helpfile:
-           helpsend=helpfile.read()
-           await client.send_message(message.channel, helpsend)
-
-
     elif message.content.startswith('!help'):
         with open('help.txt', 'r') as helpfile:
            helpsend=helpfile.read()
@@ -180,14 +174,11 @@ Me, **Ã¡Å¾Âµ Ã¡Å¾Âµ Ã¡Å¾Âµ Ã¡Å¾Âµ**#8193 - Bringing Cat 
     elif message.content.startswith('ay'):
         await client.send_message(message.channel, "https://www.youtube.com/watch?v=a2v_zGWawP0")
 
-    elif message.content.startswith ('shrug'):
-        await client.send_message(message.channel, content='Ã‚Â¯\_(Ã£Æ’â€ž)_/Ã‚Â¯')
-
     elif message.content.startswith('!smash'):
         import random
         tmp = await client.send_message(message.channel, "Thinking if i should smash...")
         answers = ["Nah, you're too ugly.", "Ofcourse, you're hot.", "Let me pass.", "I want to smash that fat ass.", "I'd rip that pussy apart.",
-        "I'm suprised you don't have a fuckbuddy. Here's your new one.", "*slaps dat fatass* I'd deffo smash."]
+        "I'm suprised you don't have a fuckbuddy. Here's your new one.", "*slaps dat fatass* I'd deffo smash.", "You're fucking flat, nah.", "Cats don't like pussies."]
         await asyncio.sleep(1)
         await client.edit_message(tmp, "Thinking..")
         await asyncio.sleep(1)
@@ -241,7 +232,7 @@ Me, **Ã¡Å¾Âµ Ã¡Å¾Âµ Ã¡Å¾Âµ Ã¡Å¾Âµ**#8193 - Bringing Cat 
         await client.edit_message(tmp, "Done sleeping :)")
 
 
-    if message.content.startswith('>suggestions'):
+    if message.content.startswith('!suggestions'):
         await client.delete_message(message)
         await client.send_message(message.channel, """**Hey there!**
 
@@ -487,11 +478,53 @@ Meow,
         await asyncio.sleep(x)
         await client.edit_message(loading, '`100% ||||||||||||||||||||`')
         await client.edit_message(loading, 'Loading Complete!')
-        
+
+    elif message.content.startswith('!info'):
+        import time
+        import datetime
+        import sys, os
+        author_repo = "https://github.com/clarian"
+        build_url = "https://github.com/clarian/cat/releases"
+        build = "V0.2"
+        server_url = "https://discord.me/catbot"
+        python_url = "https://www.python.org/"
+        dpy_repo = "https://github.com/Rapptz/discord.py"
+        since = datetime.datetime(2017, 5, 27, 0, 0)
+        dpy_version = "[{}]({})".format(discord.__version__, dpy_repo)
+        days_since = (datetime.datetime.utcnow() - since).days
+        py_version = "[{}.{}.{}]({})".format(*os.sys.version_info[:3],
+                                     python_url)
+
+        colour = ''.join([choice('0123456789ABCDEF') for x in range(6)])
+        colour = int(colour, 16)
+
+        owner = "Vos#8193"
+        about = (
+            "This is an instance of Cat, an open-source Discord bot "
+            "created by Clarian, Nino and Mental. \n\n"
+            "Cat is a bot created by passionate developers "
+            "that will do everything to rise to the top. \n\n"
+            "[Join us today]({}) "
+            "and help us improve!\n\n"
+            "".format(server_url))
+
+        embed = discord.Embed(colour=discord.Colour(value=colour))
+        embed.add_field(name="Owner", value=str(owner))
+        embed.add_field(name="Python", value=py_version)
+        embed.add_field(name="Build", value=build)
+        embed.add_field(name="discord.py", value=dpy_version)
+        embed.add_field(name="About Cat", value=about, inline=False)
+        embed.set_footer(text="Bringing joy since 27 May 2017 (over "
+                 "{} days ago!)".format(days_since))
+
+        try:
+          await client.send_message(message.channel, embed=embed)
+        except discord.HTTPException:
+          await client.send_message(message.channel, "I need the `Embed links` permission to send this")
 
     elif message.content.startswith('!shutdown'):
      if(str(message.author.id) == '285870888493121536'):
       await client.send_message(message.channel, 'Bye!')
       sys.exit()
 
-client.run('**')
+client.run('token')
