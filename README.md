@@ -1,3 +1,2 @@
-# Cat BOT
-"# Cat" 
-"# Cat" 
+# Cat (meow)
+https://discord.gg/Qhgnnzy !
