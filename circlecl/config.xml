@@ -44,7 +44,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            python bot.py
+            python3.6 bot.py
 
       - store_artifacts:
           path: test-reports
