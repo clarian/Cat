@@ -20,6 +20,8 @@
 **!support**     - Support.
 **!load**        - Loads.
 **simon says**   - Repeats whatever you type after that.
+**!play**        - Play YouTube videos.
+**!stop**        - Stop playing YouTube videos.
 ----------------------------------------------------------------------
 More and more commands are getting added. This is just an **BETA**!
 Feel free to suggest commands!

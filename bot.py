@@ -49,63 +49,7 @@ async def on_ready():
     print(client.user.id)
     await client.change_presence(game=discord.Game(name='Type !help for help.'))
     print('------')
-    print('Description:')
-    print("""
 
-
-  ____        _ _     _    __     __            _               _
- | __ ) _   _(_) | __| |_  \ \   / /__ _ __ ___(_) ___  _ __   / |
- |  _ \| | | | | |/ _` (_)  \ \ / / _ \ '__/ __| |/ _ \| '_ \  | |
- | |_) | |_| | | | (_| |_    \ V /  __/ |  \__ \ | (_) | | | | | |
- |____/ \__,_|_|_|\__,_(_)    \_/ \___|_|  |___/_|\___/|_| |_| |_|
-
-
-
-
-
-
-   ____                _           _   _             _____ _
-  / ___|_ __ ___  __ _| |_ ___  __| | | |__  _   _  |_   _(_)_ __ ___  _ __ ___  _   _
- | |   | '__/ _ \/ _` | __/ _ \/ _` | | '_ \| | | |   | | | | '_ ` _ \| '_ ` _ \| | | |
- | |___| | |  __/ (_| | ||  __/ (_| | | |_) | |_| |   | | | | | | | | | | | | | | |_| |
-  \____|_|  \___|\__,_|\__\___|\__,_| |_.__/ \__, |   |_| |_|_| |_| |_|_| |_| |_|\__, |
-                                             |___/                               |___/
-
-
-  _   _ _               _           _         _               _
- | \ | (_)_ __   ___   (_)___    __| | __ _  | |__   ___  ___| |_
- |  \| | | '_ \ / _ \  | / __|  / _` |/ _` | | '_ \ / _ \/ __| __|
- | |\  | | | | | (_) | | \__ \ | (_| | (_| | | |_) |  __/\__ \ |_
- |_| \_|_|_| |_|\___/  |_|___/  \__,_|\__,_| |_.__/ \___||___/\__|
-    """)
-    print("""
-
-  ___  __                                           _            _   _ _                    _ _
- |_ _|/ _|  _   _  ___  _   _    ___ _ __ __ _  ___| | _____  __| | (_) |_    __      _____| | |
-  | || |_  | | | |/ _ \| | | |  / __| '__/ _` |/ __| |/ / _ \/ _` | | | __|   \ \ /\ / / _ \ | |
-  | ||  _| | |_| | (_) | |_| | | (__| | | (_| | (__|   <  __/ (_| | | | |_ _   \ V  V /  __/ | |
- |___|_|    \__, |\___/ \__,_|  \___|_|  \__,_|\___|_|\_\___|\__,_| |_|\__( )   \_/\_/ \___|_|_|
-            |___/                                                         |/
-
-          .-.                     .-.
-          |U|                     | |
-          | |                     | |
-          | |                     | |
-         _| |_                   _| |_
-        | | | |-.               | |_| |-.
-       /|     ` |              / )| |_|_|
-      | |       |             | |-' `-^-'
-      |         |             |     ||  |
-      \         /             \     '   /
-       |       |               |       |
-       |       |   VK          |       |
-
-  _   _                    __             _
- | | | | __ ___   _____   / _|_   _ _ __ | |
- | |_| |/ _` \ \ / / _ \ | |_| | | | '_ \| |
- |  _  | (_| |\ V /  __/ |  _| |_| | | | |_|
- |_| |_|\__,_| \_/ \___| |_|  \__,_|_| |_(_)
-    """)
 
 @client.event
 async def on_member_join(member):
@@ -325,6 +269,21 @@ Meow,
                 listsrv.append(i.id)
             await client.send_message(message.channel, "```[servername, serverid] \n " + str(listsrv) + "```")
 
+    elif message.content.startswith('!play') and not client.voice_client_in(message.server):
+        await client.join_voice_channel(message.author.voice.voice_channel)
+        youtube_string = message.content
+        youtube_string = str.split(youtube_string)
+        voice = client.voice_client_in(message.server)
+        player = await voice.create_ytdl_player(youtube_string[1])
+        player.start()
+        await client.send_message(message.channel, '**Now playing:** ' + player.title)
+        await asyncio.sleep(player.duration)
+        await voice.disconnect()
+
+    elif message.content.startswith('!stop'):
+        voice = client.voice_client_in(message.server)
+        await voice.disconnect()       
+
     elif message.content.startswith("!invite"):
         admins = ["285870888493121536"]
         if message.author.id in admins:
@@ -520,11 +479,11 @@ Meow,
         try:
           await client.send_message(message.channel, embed=embed)
         except discord.HTTPException:
-          await client.send_message(message.channel, "I need the `Embed links` permission to send this")
+          await client.send_message(message.channel, "I need the `Embed links` permission to send this")                                
 
     elif message.content.startswith('!shutdown'):
      if(str(message.author.id) == '285870888493121536'):
       await client.send_message(message.channel, 'Bye!')
       sys.exit()
 
-client.run('MzE3OTU1MjQwNTQyNDcwMTU0.DGtQpw.gs-cmW85MTrPNTZ3ys5I_iZ91dg')
+client.run('token')
