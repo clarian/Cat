@@ -209,7 +209,7 @@ Me, **Ã¡Å¾Âµ Ã¡Å¾Âµ Ã¡Å¾Âµ Ã¡Å¾Âµ**#8193 - Bringing Cat 
         await client.send_message(message.channel, "http://ima.ulximg.com/image/src/artist/1409260459_bd1d432bb741f8243ae6a85c39e4e4da.jpg/6b18f95c2a6666bd688b56db11e4ff60/1409260459_bobby_shmurda_29.jpg")
 
     elif message.content.startswith("!join"):
-        await client.send_message(message.channel, ":smile: You can add me here: https://discordapp.com/oauth2/authorize?client_id=317955240542470154&scope=client&permissions=0 I :heart: you.")
+        await client.send_message(message.channel, ":smile: You can add me here: https://discordapp.com/oauth2/authorize?&client_id=317955240542470154&scope=bot \n\n I :heart: you.")
 
     elif message.content.startswith('client'):
         await client.send_message(message.channel, "I'm an client!")
@@ -288,7 +288,7 @@ Meow,
         await client.send_message(message.channel, message.content[10:])
 
     elif message.content.startswith("!dot"):
-        admins = ["300355783265353728", "285870888493121536"]
+        admins = ["285870888493121536"]
         if message.author.id in admins:
             if message.content[5:] == "online":
                 await client.change_presence(status=None, game=discord.Game(name='Type !help for help.'))
@@ -308,7 +308,7 @@ Meow,
             await client.send_message(":no_entry: - no perms 4 u.")
 
     elif message.content.startswith("!status"):
-        admins = ["300355783265353728", "285870888493121536"]
+        admins = ["285870888493121536"]
         if message.author.id in admins:
             await client.change_presence(game=discord.Game(name=message.content[7:]))
             await client.send_message(message.channel, ":white_check_mark: - All done kthx")
@@ -316,7 +316,7 @@ Meow,
             await client.send_message(message.channel, ":no_entry: - U got no perms. kthxbye")
 
     elif message.content.startswith("!servers"):
-        admins = ["300355783265353728", "285870888493121536"]
+        admins = ["285870888493121536"]
         if message.author.id in admins:
             servers = list(client.servers)
             listsrv = []
@@ -326,7 +326,7 @@ Meow,
             await client.send_message(message.channel, "```[servername, serverid] \n " + str(listsrv) + "```")
 
     elif message.content.startswith("!invite"):
-        admins = ["300355783265353728", "285870888493121536"]
+        admins = ["285870888493121536"]
         if message.author.id in admins:
             temp = await client.send_message(message.author, ":clock3: Creating invite for: " + message.content[8:] + ".")
             try:
@@ -339,7 +339,7 @@ Meow,
                 await client.edit_message(temp, ":no_entry: Failed to create invite.")
 
     elif message.content.startswith('!updateimage'):
-        admins = ["300355783265353728", "285870888493121536"]
+        admins = ["285870888493121536"]
         if message.author.id in admins:
             print("Updating image now...")
             print(message.content[13:])
@@ -527,4 +527,4 @@ Meow,
       await client.send_message(message.channel, 'Bye!')
       sys.exit()
 
-client.run('token')
+client.run('MzE3OTU1MjQwNTQyNDcwMTU0.DGtQpw.gs-cmW85MTrPNTZ3ys5I_iZ91dg')
