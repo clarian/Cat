@@ -11,7 +11,7 @@ if errorlevel 1 goto forward
 goto run		
 
 :prompt
-	choice /t 10 /c yn /d n /m "There is an update for the bot. Download now?"
+	choice /t 10 /c yn /d n /m "There is an update for the bot. Download now?, note that by saying yes, you're restoring all your changes"
 	if errorlevel 2 goto :run
 	if errorlevel 1 goto :update
 :forward
